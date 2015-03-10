@@ -13,3 +13,24 @@
  *= require_tree .
  *= require_self
  */
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+body {
+  padding-top: 70px;
+  padding-bottom: 30px;
+  margin-left: 30px;
+  margin-right:30px;
+ }
+
+.img_brand {
+  max-width: 2em;
+  max-height: 2em;
+  padding-bottom: 10px;
+}
+
+.img_stop_light {
+  max-width: 5em;
+  max-height: 2em;
+}
