@@ -1,16 +1,1 @@
-<div class="page-header">
-  <h1>Rating for <%= @subject.name %></h1>
-</div>
-
-  <%= form_for [@subject, @rating], html:{class: "form-horizontal"} do |f| %>
-    <div class="form-group">
-      <%= f.collection_select(:color, Rating::COLOR, :to_s, :to_s, {}, {class: "form-control"}) %>
-    </div>
-    <div class="form-group">
-      <%= f.label :comments %>
-      <%= f.text_area :comments %>
-    </div>
-    <div class="form-group">
-      <%= image_submit_tag("stoplight.jpeg", class: "img_stop_light") %>
-    </div>
-  <% end %>
+<%= render partial: "form" %>
