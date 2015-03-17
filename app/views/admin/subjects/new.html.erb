@@ -1,8 +1,10 @@
 <h1>Create Subject</h1>
 
-<%= form_for @subject do |f| %>
-<%= f.label :name %>
-<%= f.text_field :name %>
+<%= form_for @subject, url: admin_subjects_path do |f| %>
 
-<%= f.submit "create subject" %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+
+  <%= f.submit "create subject" %>
+  
 <% end %>

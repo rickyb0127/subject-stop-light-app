@@ -1,28 +1,16 @@
 <div class="page-header">
-  <h1>Subjects <%= link_to "new subject", new_subject_path, class: "btn btn-primary pull-right" %></h1>
+  <h1>Subjects <%= link_to "new subject", new_admin_subject_path, class: "btn btn-primary pull-right" %></h1>
 </div>
 
   <table class="table">
     <thead>
       <th>Subject Name</th>
-      <th>Color Rating</th>
-      <th>Comments</th>
-      <th>Edit Rating</th>
       <th>Delete Subject</th>
     </thead>
     <% @subjects.each do |subject| %>
       <tr>
-        <td><%= link_to subject.name, edit_subject_path(subject) %></td>
-        <% if %>
-          <% subject.ratings.where(user_id: current_user.id).first == nil %>
-          <td><%= link_to "please add a rating", new_subject_rating_path(subject) %></td>
-          <td></td>
-        <% else %>
-          <td><%= subject.ratings.where(user_id: current_user.id).first.color %></td>
-          <td><%= subject.ratings.where(user_id: current_user.id).first.comments %></td>
-        <% end %>
-        <td><%= link_to "edit rating", edit_subject_rating_path(subject, 1)%></td>
-        <td><%= link_to "delete", subject_path(subject), method: :delete %></td>
+        <td><%= link_to subject.name, admin_subject_path(subject) %></td>
+        <td><%= link_to "delete", admin_subject_path(subject), method: :delete %></td>
       </tr>
     <% end %>
   </table>

@@ -12,7 +12,7 @@ class Admin::SubjectsController < ApplicationController
   def create
     @subject = Subject.new(subject_params)
     if @subject.save
-      redirect_to subject_path(@subject)
+      redirect_to admin_subject_path(@subject)
     else
       render :new
     end
@@ -31,11 +31,13 @@ class Admin::SubjectsController < ApplicationController
   end
 
   def show
+    @subject = Subject.find(params[:id])
   end
 
   def destroy
+    @subject = Subject.find(params[:id])
     @subject.destroy
-    redirect_to subjects_path
+    redirect_to admin_subjects_path
   end
 
   private
