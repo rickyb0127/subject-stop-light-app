@@ -32,6 +32,7 @@ class Admin::SubjectsController < ApplicationController
 
   def show
     @subject = Subject.find(params[:id])
+    @ratings = @subject.ratings.all
   end
 
   def destroy

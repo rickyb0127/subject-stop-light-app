@@ -2,4 +2,37 @@
   <h1><%= @subject.name %></h1>
 </div>
 
+<table class="table">
+
+  <thead>
+    <th>Student</th>
+    <th>Color Rating</th>
+    <th>Comments</th>
+  </thead>
+
+  <tr><% @ratings.each do |rating| %></tr>
+
+    <td><%= rating.user.user_name %></td>
+
+    <td>
+      <% if rating.color == "Red" %>
+        <div style="color: red;">
+          <%= rating.color %>
+        </div>
+        <% elsif rating.color == "Yellow" %>
+          <div style="color: yellow;">
+            <%= rating.color %>
+          </div>
+        <% else %>
+          <div style="color: green;">
+            <%= rating.color %>
+          </div>
+      <% end %>
+    </td>
+
+    <td><%= rating.comments %></td>
+  <% end %>
+
+</table>
+
 <%= link_to "home", admin_subjects_path %>

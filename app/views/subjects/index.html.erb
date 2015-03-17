@@ -18,7 +18,21 @@
           <td></td>
           <td></td>
         <% else %>
-          <td><%= subject.ratings.where(user_id: current_user.id).first.color %></td>
+        <td>
+          <% if subject.ratings.where(user_id: current_user.id).first.color == "Red" %>
+            <div style="color: red;">
+              <%= subject.ratings.where(user_id: current_user.id).first.color %>
+            </div>
+            <% elsif subject.ratings.where(user_id: current_user.id).first.color == "Yellow" %>
+              <div style="color: yellow;">
+                <%= subject.ratings.where(user_id: current_user.id).first.color %>
+              </div>
+            <% else %>
+              <div style="color: green;">
+                <%= subject.ratings.where(user_id: current_user.id).first.color %>
+              </div>
+          <% end %>
+        </td>
           <td><%= subject.ratings.where(user_id: current_user.id).first.comments %></td>
         <td><%= link_to "edit rating", edit_subject_rating_path(subject, subject.ratings.where(user_id: current_user.id).first)%></td>
         <% end %>
